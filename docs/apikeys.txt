@@ -1,0 +1,14 @@
+setlist.fm
+API Key - BYO2nFhjMVFnIr-aZG-qkWYoV8qZL2EBlRub
+Documentation - https://api.setlist.fm/docs/1.0/index.html
+
+spotify.com
+Website - https://developer.spotify.com/dashboard/
+API Calls to - https://api.spotify.com
+API Key - 4e35c64cd250438684608aa0aea8fd7a
+
+ticketmaster
+Consumer Key - 8F1kGz3ndgSx2auYBTZt2UCp5S3v8b5G
+Consumer Secret - AN1xNfseQt3sFztN
+Website - https://developer-acct.ticketmaster.com/user/login?destination=user
+
