@@ -4,6 +4,7 @@ var tmApiKey = "8F1kGz3ndgSx2auYBTZt2UCp5S3v8b5G";
 var tmEventId = "vv178Z4JGkS6JSZS"
 var tmApiUrl = "https://app.ticketmaster.com/discovery/v2/events/" + tmEventId + ".json?apikey=" + tmApiKey;
 
+// this is the API call to get all "attractions" at Lollapalooza, Chicago
 $.ajax({
     type:"GET",
     url: tmApiUrl,
