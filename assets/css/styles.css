@@ -1,0 +1,119 @@
+body {
+    background-image: url("https://10mag.com/wp-content/uploads/2019/04/5tardium-music-festival.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+  }
+
+.responsive {
+    width: auto;
+    height: 100%;
+  }
+
+.jumbotron {
+    text-align: left;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 50;
+    margin-bottom: 0px;
+    margin-top: 30px;
+  }
+
+h1 {
+    font-size: 500%;
+    line-height: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+h3 {
+    letter-spacing: 3px;
+    font-weight: unset;
+    padding-top: 0px;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+  }
+
+h4 {
+    text-align: left;
+    padding: 30px;
+    margin: 0;
+    color: white;
+  }
+
+#lolla {
+    vertical-align: center;
+    height: 130px;
+    width: auto;
+    float: left;
+    margin-right: 25px;
+  }
+
+#card-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    color: white;
+    padding: 20 20 20 30;
+  }
+
+.card-body {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    padding: 50px;
+  }
+
+button {
+    margin-right: 15px;
+  }
+
+p {
+    color: white;
+    font-size: 12pt;
+  }
+
+.form-check-inline {
+    color: white;
+    font-size: 150%;
+  }
+
+th {
+    color: white;
+    font-weight: bold;
+  }
+
+td {
+    color: white;
+    font-weight: normal;
+  }
+
+.footer {
+    margin: 0px;
+    background-color: black;
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 7pt;
+    vertical-align: middle;
+    font-size: 180%;
+    letter-spacing: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
+.fas {
+    color: white;
+  }
+
+.fab {
+    color: white;
+  }
+
+.textbox {
+    width: 200px;
+  }

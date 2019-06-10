@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>showUP Chicago</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+    <div id=bkgd-img class="responsive" alt="concert">
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <img id="lolla" src="assets/images/Screen Shot 2019-06-08 at 3.24.52 PM.png">
+                <h1><strong>showUP</h1>
+                <br>
+                <div>
+                    <h3>> your source for Lollapalooza details <</h3> 
+                </div> 
+            </div> 
+            
+            <br>
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <br>
+
+                    <div id="card">
+                        <div id="card-header">
+                            <h4><strong>get ready for the show!</strong></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <form action="/action_page.php">
+                                            <div class="row">
+                                                <label for="email">Email for showUP notifications:</label>
+                                            </div>
+                                            <div class="row">
+                                                <input class="textbox" type="text" placeholder="Enter Email" name="email" required>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="row">
+                                                <label for="psw">Password:</label>
+                                            </div>
+                                            <div class="row">
+                                                <input class="textbox" type="password" placeholder="Enter Password" name="psw" required>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="row">
+                                                <button type="submit" class="btn btn-info">Log in</button>
+                                                <button type="submit" class="btn btn-warning">Sign up</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        <form action="/action_page.php">
+                                            <div class="row">
+                                                <label for="email">Spotify Login</label>
+                                            </div>
+                                            <div class="row">
+                                                <input class="textbox" type="text" placeholder="Enter Email" name="email" required>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="row">
+                                                <label for="psw">Spotify Password</label>
+                                            </div>
+                                            <div class="row">
+                                                <input class="textbox" type="password" placeholder="Enter Password" name="psw" required>
+                                            </div>
+                                            
+                                            <br>
+
+                                            <div class="row">
+                                                <button type="submit" class="btn btn-info">Log in</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                    <div id="card">
+                        <div id="card-header">
+                            <h4><strong>get ready for the show!</strong></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" value=""> Friday, July 5, 2019
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" value=""> Saturday, July 6, 2019
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" value=""> Sunday, July 7,2019
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                    <div id="card">
+                        <div id="card-header">
+                            <h4><strong>Top 5 Songs right now by "ARTIST NAME"</strong></h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover" id="spotify-list">
+                                <thead>
+                                    <th>ARTIST NAME</th>
+                                    <th>ALBUM TITLE</th>
+                                    <th>RELEASE DATE</th>
+                                    <th>SPOTIFY RANK</th>
+                                </thead>
+                                <tbody>
+                                    <td id="artist-name">ARTIST</td>
+                                    <td id="album-title">ALBUM TITLE</td>
+                                    <td id="release-date">RELEASE DATE</td>
+                                    <td id="spotify-popularity">RANK</td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="footer">
+            <a class="active" href="#"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-location-arrow"></i></a>
+            <a href="#"><i class="fas fa-calendar-alt"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+            <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+    </div> 
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="assets/stylesheets/train.js"></script>
+</body>
+</html>
