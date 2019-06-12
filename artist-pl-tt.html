@@ -14,6 +14,21 @@
     <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
+    <!-- Style specific to this component -->
+    <style>
+        #btnTopTracks,
+        #btnPlaylists {
+            margin: 0;
+            width: 200px;
+        }
+
+        #artist-spotify-links {
+            width: 400px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -22,17 +37,19 @@
     <br>
     <input type="text" id="artist-name">
 
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button id="btnPlaylists" type="button" class="btn btn-secondary">Playlists</button>
-        <button id="btnTopTracks" type="button" class="btn btn-secondary">Top Tracks</button>
-    </div>
     <div class="row">
-        <div class="col-md-1">
-            Blank
-        </div>
-        <div class="col=md-11">
-            <div id="artist-playlists"></div>
-            <div id="artist-toptracks"></div>
+        <div class="col-md-6">
+            <!-- this is the playlist/tracklist component -->
+            <div class="row">
+                <div class="btn-group" role="group">
+                    <button id="btnTopTracks" type="button" class="btn btn-secondary">Top Tracks</button>
+                    <button id="btnPlaylists" type="button" class="btn btn-secondary">Playlists</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="artist-spotify-links" class="btn-group-vertical" role="group"></div>
+                <!-- this is the playlist/tracklist component -->
+            </div>
         </div>
     </div>
     <script src="./assets/javascript/artist-pl-tt.js"></script>
