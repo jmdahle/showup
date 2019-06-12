@@ -31,7 +31,6 @@ $("#artist-name").on("change", function(){
     artistName = $("#artist-name").val();
     console.log("artist name", artistName);
     getArtistId();
-    console.log(artistName,artistId);
 });
 
 // TEST - function for retriving the artist ID
@@ -47,20 +46,21 @@ function getArtistId() {
             console.log(r1);
             artistId = r1.artists.items[0].id;
             console.log(artistId);
+            // when the artist changes, get top tracks
+            getTopTracks();
         }
     });
-
 }
 
 // trigger for playlists to be shown
 $("#btnPlaylists").on("click", function() {
-    $("#btnPlaylists").attr("class","btn btn-success");
-    $("#btnTopTracks").attr("class","btn btn-secondary");
     getPlaylist();
 });
 
 // playlist search API call
 function getPlaylist() {
+    $("#btnPlaylists").attr("class","btn btn-success");
+    $("#btnTopTracks").attr("class","btn btn-secondary");
     // ajax call for playlists featuring this artist
     $.ajax({
         url: "https://api.spotify.com/v1/search?q="+ artistName.replace(" ","+") + "&type=playlist",
@@ -76,13 +76,13 @@ function getPlaylist() {
 
 // trigger for top tracks to be shown
 $("#btnTopTracks").on("click", function() {
-    $("#btnTopTracks").attr("class","btn btn-success");
-    $("#btnPlaylists").attr("class","btn btn-secondary");
     getTopTracks();
 });
 
 // top tracks for artist API call
 function getTopTracks() {
+    $("#btnTopTracks").attr("class","btn btn-success");
+    $("#btnPlaylists").attr("class","btn btn-secondary");
     // ajax call for top tracks using artist ID and access token
     $.ajax({
         url: "https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US",
