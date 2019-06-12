@@ -64,7 +64,13 @@ h4 {
     padding: 50px;
   }
 
-.form-group {
+  .card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+  }
+  
+  .form-group {
   margin: 50 0 50 50;
 }
 
@@ -137,7 +143,7 @@ p {
   }
 
 #searchbox {
-  width: 80%
+  width: 60%
 }
 
 th {
