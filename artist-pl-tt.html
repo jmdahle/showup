@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+</head>
+
+<body>
+    <button type="button" id="spotifyLogin">SPOTIFY LOGIN</button>
+    <br>
+    <br>
+    <input type="text" id="artist-name">
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="btnPlaylists" type="button" class="btn btn-secondary">Playlists</button>
+        <button id="btnTopTracks" type="button" class="btn btn-secondary">Top Tracks</button>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            Blank
+        </div>
+        <div class="col=md-11">
+            <div id="artist-playlists"></div>
+            <div id="artist-toptracks"></div>
+        </div>
+    </div>
+    <script src="./assets/javascript/artist-pl-tt.js"></script>
+</body>
+
+</html>
