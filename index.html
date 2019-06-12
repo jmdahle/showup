@@ -16,11 +16,12 @@
     <div id=bkgd-img class="responsive" alt="concert">
         <div class="container-fluid">
             <div class="jumbotron">
-                <img id="lolla" src="assets/images/Screen Shot 2019-06-08 at 3.24.52 PM.png">
-                <h1><strong>showUP</h1>
+                <img id="product" src="assets/images/product-logo.png">
                 <br>
                 <div>
-                    <h3>> your source for Lollapalooza details <</h3> 
+                    <br>
+                    <h1>CHICAGO 2019</h1>
+                    <h3>---> your source for Lollapalooza details</h3> 
                 </div> 
             </div> 
             
@@ -69,25 +70,35 @@
                                     <div class="form-group">
                                         <form action="/action_page.php">
                                             <div class="row">
-                                                <label for="email">Spotify Login</label>
+                                                <label>Get your playlist started!</label>
                                             </div>
+
                                             <div class="row">
-                                                <input class="textbox" type="text" placeholder="Enter Email" name="email" required>
+                                                <button type="submit" class="btn-spotify">
+                                                    <img id="spotify-button" src="assets/images/Spotify_Logo_RGB_Green.jpg">
+                                                </button>
                                             </div>
 
                                             <br>
+                                            <!-- optional API info if we get there? could just be an anchor. -->
+                                            <div class="row">
+                                                <label for="email">Local travel questions?</label>
+                                            </div>
 
                                             <div class="row">
-                                                <label for="psw">Spotify Password</label>
-                                            </div>
-                                            <div class="row">
-                                                <input class="textbox" type="password" placeholder="Enter Password" name="psw" required>
-                                            </div>
-                                            
-                                            <br>
-
-                                            <div class="row">
-                                                <button type="submit" class="btn btn-info">Log in</button>
+                                                <div class="row">
+                                                    <button type="submit" class="btn-rta">
+                                                        <img id="rta-button" src="assets/images/rta_logo_100.png">
+                                                    </button>
+                                                    <button>
+                                                        <img id="spothero-button" src="assets/images/sh-logo.png">
+                                                    </button>
+                                                    <button type="submit" class="btn-eater">
+                                                            <img id="eaterchi-button" src="assets/images/eater-logo.png">
+                                                                <a href="https://chicago.eater.com/"></a>
+                                                    </button>
+                                                    
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -105,26 +116,19 @@
                     <br>
                     <div id="card">
                         <div id="card-header">
-                            <h4><strong>get ready for the show!</strong></h4>
+                            <h4><strong>get details on your favorite performer!</strong></h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" value=""> Friday, July 5, 2019
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" value=""> Saturday, July 6, 2019
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" value=""> Sunday, July 7,2019
-                                        </label>
-                                    </div>
+                                    <form action="/action_page.php">
+                                        <div class="input-group">
+                                          <input type="text" class="form-control" id="searchbox" name="search">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -17,8 +17,7 @@ body {
     text-shadow: 4px 4px 4px black;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 50;
-    margin-bottom: 0px;
-    margin-top: 30px;
+    margin: 0;
   }
 
 h1 {
@@ -38,17 +37,17 @@ h3 {
 
 h4 {
     text-align: left;
-    padding: 30px;
+    padding: 50px;
     margin: 0;
     color: white;
   }
 
-#lolla {
+#product {
     vertical-align: center;
-    height: 130px;
+    height: 200px;
     width: auto;
     float: left;
-    margin-right: 25px;
+    margin: 0;
   }
 
 #card-header {
@@ -65,19 +64,81 @@ h4 {
     padding: 50px;
   }
 
+.form-group {
+  margin: 50 0 50 50;
+}
+
 button {
     margin-right: 15px;
+    border-radius: 10px;
   }
+
+input {
+  width:100%;
+  padding:5px;
+}
+
+#spotify-button {
+  width: 120px;
+  height: auto;
+  color: rgb(0,0,0);
+  padding: 7px;
+  margin: 0 15 0 15;
+}
+
+.btn-spotify {
+  background-color: rgb(0,0,0);
+  border-radius: 10px;
+  margin: 0 15 0 15;
+}
+
+#rta-button {
+  width: 120px;
+  height: auto;
+  color: #286EAC;
+  padding: 7px;
+}
+.btn-rta {
+  background-color: #286EAC;
+  border-radius: 10px;
+}
+
+#spothero-button {
+  width: 120px;
+  height: auto;
+  color: rgb(256, 256, 256);
+  padding: 15px;
+  margin: 0 15 0 15;
+}
+
+.btn-spothero {
+  background-color: rgb(256, 256, 256);
+  border-radius: 10px;
+  margin: 0 15 0 15;
+}
+
+#eaterchi-button {
+  width: 120px;
+  height: auto;
+  color: rgb(0,0,0);
+  padding: 7px;
+  margin: 0 15 0 15;
+}
+
+.btn-eater {
+  background-color: #e70202;
+  border-radius: 10px;
+  margin: 0 15 0 15;
+}
 
 p {
     color: white;
     font-size: 12pt;
   }
 
-.form-check-inline {
-    color: white;
-    font-size: 150%;
-  }
+#searchbox {
+  width: 80%
+}
 
 th {
     color: white;
@@ -115,5 +176,13 @@ td {
   }
 
 .textbox {
-    width: 200px;
+    width: 80%;
+    border-radius: 5px;
+    padding-right: 30px;
+  }
+
+  .searchbox{
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 0px;
   }
