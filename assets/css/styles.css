@@ -50,6 +50,10 @@ h4 {
     margin: 0;
   }
 
+.row {
+  margin: 0
+}
+
 #card-header {
     background-color: rgba(0, 0, 0, 0.8);
     border: none;
@@ -64,13 +68,7 @@ h4 {
     padding: 50px;
   }
 
-  .card {
-    background-color: rgba(0, 0, 0, 0.6);
-    border: none;
-    color: white;
-  }
-  
-  .form-group {
+.form-group {
   margin: 50 0 50 50;
 }
 
@@ -142,8 +140,12 @@ p {
     font-size: 12pt;
   }
 
-#searchbox {
-  width: 60%
+
+.input-group {
+  margin-top:50px;
+  width:100%;
+  float: right;
+
 }
 
 th {
@@ -155,6 +157,21 @@ td {
     color: white;
     font-weight: normal;
   }
+
+.nav-link {
+  color: white;
+
+}
+
+.nav-link:active {
+  color: white;
+  background: #e70202;
+
+}
+
+.nav-tabs {
+  border-bottom: 1px solid red;
+}
 
 .footer {
     margin: 0px;
