@@ -21,188 +21,96 @@
                 <div>
                     <br>
                     <h1>CHICAGO 2019</h1>
-                    <h3>---> your source for Lollapalooza details</h3> 
-                </div> 
-            </div> 
-            
-            <br>
+                    <h3>---> your source for Lollapalooza details</h3>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <br>
-                    <div id="card">
-                        <div id="card-header">
-                            <h4><strong>get ready for the show!</strong></h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <form action="/action_page.php">
-                                            <div class="row">
-                                                <label for="email">Email for showUP notifications:</label>
-                                            </div>
-                                            <div class="row">
-                                                <input class="textbox" type="text" placeholder="Enter Email" name="email" required>
-                                            </div>
-
-                                            <br>
-
-                                            <div class="row">
-                                                <label for="psw">Password:</label>
-                                            </div>
-                                            <div class="row">
-                                                <input class="textbox" type="password" placeholder="Enter Password" name="psw" required>
-                                            </div>
-
-                                            <br>
-
-                                            <div class="row">
-                                                <button type="submit" class="btn btn-info">Log in</button>
-                                                <button type="submit" class="btn btn-warning">Sign up</button>
-                                            </div>
-                                        </form>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><strong>get details on your favorite performer!</strong></h4>
+                            <form id="band-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="searchbox" name="search">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-dark" type="submit"><i
+                                                class="fas fa-search"></i></button>
                                     </div>
                                 </div>
-
-                                <div class="col-6">
-                                    <div class="row">
-                                        <p>Get your playlist started!</p>
-                                    </div>
-                                    <div class="row">
-                                        <button type="submit" class="btn-spotify">
-                                            <img id="spotify-button" src="assets/images/Spotify_Logo_RGB_Green.jpg">
-                                        </button>
-                                    </div>
-                                    <br>
-                                    <!-- optional API info if we get there? could just be an anchor. -->                                       
-                                    <div class="row">
-                                        <p>Local travel questions?</p>
-                                    </div>   
-                                    <div class="row">
-                                        <div class="button-group">
-                                            <a href="https://www.rtachicago.org/plan-your-trip">
-                                                <button class="btn-rta">
-                                                    <img id="rta-button" src="assets/images/rta_logo_100.png">
-                                                </button>
-                                            </a>
-                                        
-                                            <a href="https://spothero.com/chicago/grant-park-parking">
-                                                <button class="btn-spothero">
-                                                    <img id="spothero-button" src="assets/images/sh-logo.png">                                                 </button>
-                                            </a>                                               
-                                            <a href="https://chicago.eater.com/">
-                                                <button class="btn-eater">
-                                                    <img id="eaterchi-button" src="assets/images/eater-logo.png">  
-                                                </button> 
-                                            </a>
-                                        </div>                     
-                                    </div>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            <div id="artist-name-list" style="height: 400px;overflow: auto;">
+                                <table id="tm-list" class="list table table-hover"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu2">GET SOCIAL</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane active"><br>
+                                    <h3>ON SPOTIFY--need to use logo (API)</h3>
+                                    <p>Button to add to Spotify Playlist?</p>
+                                    <table class="table table-hover" id="spotify-list">
+                                        <thead>
+                                            <th>ARTIST NAME</th>
+                                            <th>ALBUM TITLE</th>
+                                            <th>RELEASE DATE</th>
+                                            <th>SPOTIFY RANK</th>
+                                        </thead>
+                                        <tbody>
+                                            <td id="artist-name">SPOTIFY </td>
+                                            <td id="album-title">API</td>
+                                            <td id="release-date">INFO</td>
+                                            <td id="spotify-popularity">HERE</td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="menu1" class="container tab-pane fade"><br>
+                                    <h3>Playlist </h3>
+                                    <p>Pull album cover images with AJAX request? Other stuff?</p>
+                                </div>
+                                <div id="menu2" class="container tab-pane fade"><br>
+                                    <h3>GET SOCIAL</h3>
+                                    <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted
+                                        with a var for artist name?</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <br>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <br>
-                    <div id="card">
-                        <div id="card-header">
-                            <div class="row">
-                                <h4><strong>get details on your favorite performer!</strong></h4>
-                                    <form action="/action_page.php" id="band-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="searchbox" name="search">
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
-                                                </div>
-                                        </div>
-                                    </form>
-                            </div>   
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <table class="table table-hover" id="tm-list">
-                                        <thead>
-                                            <th>ARTIST NAME</th>
-                                        </thead>
-                                        <tbody id="artist-name-list">
-                                            <td id="artist-name"></td>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            
-                        
-                                <div class="col-sm-6">
-                                      <!-- Nav tabs -->
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#menu2">GET SOCIAL</a>
-                                        </li>
-                                    </ul>
-    
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div id="home" class="container tab-pane active"><br>
-                                            <h3>ON SPOTIFY--need to use logo (API)</h3>
-                                            <p>Button to add to Spotify Playlist?</p>
-                                            <table class="table table-hover" id="spotify-list">
-                                                <thead>
-                                                    <th>ARTIST NAME</th>
-                                                    <th>ALBUM TITLE</th>
-                                                    <th>RELEASE DATE</th>
-                                                    <th>SPOTIFY RANK</th>
-                                                </thead>
-                                                <tbody >
-                                                    <td id="artist-name">SPOTIFY </td>
-                                                    <td id="album-title">API</td>
-                                                    <td id="release-date">INFO</td>
-                                                    <td id="spotify-popularity">HERE</td>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <div id="menu1" class="container tab-pane fade"><br>
-                                            <h3>Playlist </h3>
-                                            <p>Pull album cover images with AJAX request? Other stuff?</p>
-                                        </div>
-
-                                        <div id="menu2" class="container tab-pane fade"><br>
-                                            <h3>GET SOCIAL</h3>
-                                            <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted with a var for artist name?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="footer">
+                <a class="active" href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-location-arrow"></i></a>
+                <a href="#"><i class="fas fa-calendar-alt"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+                <a href="#"><i class="fas fa-search"></i></a>
             </div>
         </div>
-        
-        <br>
-        
-        <div class="footer">
-            <a class="active" href="#"><i class="fas fa-user"></i></a>
-            <a href="#"><i class="fas fa-location-arrow"></i></a>
-            <a href="#"><i class="fas fa-calendar-alt"></i></a>
-            <a href="#"><i class="fab fa-spotify"></i></a>
-            <a href="#"><i class="fas fa-search"></i></a>
-        </div>
-    </div> 
-
+    </div>
+    <br>
+    <!-- listjs javascript library-->
+    <script src="./assets/javascript/list.min.js"></script>
     <script src="./assets/javascript/tm.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </body>
 </html>
