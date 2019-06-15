@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>showUP Chicago</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row card-header">
-            <img src="assets/images/lollalogo.png" id="product">
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>showUP Chicago</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+        <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row card-header">
+                <img src="assets/images/lollalogo.png" id="product">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h4><strong>get details on your favorite performer!</strong></h4>
@@ -28,7 +30,7 @@
                                     <input type="text" class="form-control" id="searchbox" name="search">
                                     <div class="input-group-btn">
                                         <button class="btn btn-dark" type="submit"><i
-                                                class="fas fa-search"></i></button>
+                                                class="fas fa-window-close"></i></button>
                                     </div>
                                 </div>
                             </form>
@@ -40,50 +42,49 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
+                            <div class="row">
+                                <button type="submit" class="btn-spotify">
+                                    <img id="spotify-button" src="assets/images/Spotify_Logo_RGB_Green.jpg">
+                                </button>
+                                <p class="align-middle">Log into Spotify!</p>
+                            </div>
+                            <br>
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
+                                    <a id="artist-button" class="nav-link active show" data-toggle="tab"
+                                        href="#home">ARTIST</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
+                                    <a id="spotify-playlist" class="nav-link" data-toggle="tab"
+                                        href="#menu1">PLAYLIST</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#menu2">GET SOCIAL</a>
+                                    <a id="spotify-toptracks" class="nav-link" data-toggle="tab" href="#menu2">TOP
+                                        TRACKS</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
-                                <div id="home" class="tab-pane active"><br>
-                                    <h3>ON SPOTIFY--need to use logo (API)</h3>
-                                    <p>Button to add to Spotify Playlist?</p>
-                                    <table class="table table-hover" id="spotify-list">
-                                        <thead>
-                                            <th>ARTIST NAME</th>
-                                            <th>ALBUM TITLE</th>
-                                            <th>RELEASE DATE</th>
-                                            <th>SPOTIFY RANK</th>
-                                        </thead>
-                                        <tbody>
-                                            <td id="artist-name">SPOTIFY </td>
-                                            <td id="album-title">API</td>
-                                            <td id="release-date">INFO</td>
-                                            <td id="spotify-popularity">HERE</td>
-                                        </tbody>
-                                    </table>
+                                <div id="home" class="tab-pane active show"><br>
+                                    <h3 id="spot-artist"></h3>
                                 </div>
                                 <div id="menu1" class="container tab-pane fade"><br>
                                     <h3>Playlist </h3>
                                     <p>Pull album cover images with AJAX request? Other stuff?</p>
+                                    <!-- <div id="artist-playlist" class="btn-group-vertical"></div> -->
+                                    <table id="artist-playlist" class="list table table-hover"></table>
                                 </div>
                                 <div id="menu2" class="container tab-pane fade"><br>
-                                    <h3>GET SOCIAL</h3>
+                                    <h3>Top Tracks </h3>
                                     <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted
                                         with a var for artist name?</p>
+                                    <table id="artist-toptracks" class="list table table-hover"></table>
                                 </div>
                             </div>
                         </div>
@@ -91,20 +92,25 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer">
+        </div>
+        </div>
+        </div>
+        <div class="footer">
             <a class="active" href="#"><i class="fas fa-user"></i></a>
             <a href="#"><i class="fas fa-location-arrow"></i></a>
             <a href="#"><i class="fas fa-calendar-alt"></i></a>
             <a href="#"><i class="fab fa-spotify"></i></a>
             <a href="#"><i class="fas fa-search"></i></a>
         </div>
-    <br>
-    <!-- listjs javascript library-->
-    <script src="./assets/javascript/list.min.js"></script>
-    <script src="./assets/javascript/tm.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-</body>
+        <br>
+        <!-- listjs javascript library-->
+        <script src="./assets/javascript/list.min.js"></script>
+        <script src="./assets/javascript/tm.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+        </script>
+        <script src="./proj3.js"></script>
+    </body>
+
 </html>

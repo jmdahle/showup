@@ -44,7 +44,6 @@ h4 {
 .row {
   margin: 0
 }
-
 .card {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
@@ -52,7 +51,6 @@ h4 {
   margin-top: 30px;
   width: 100%;
 }
-
 .card-header {
     background-color: rgba(0, 0, 0, 0.8);
     border: none;
@@ -79,7 +77,6 @@ input {
   width:100%;
   padding:5px;
 }
-
 #spotify-button {
   width: 120px;
   height: auto;
@@ -87,25 +84,21 @@ input {
   padding: 7px;
   margin: 0 15 0 15;
 }
-
 .btn-spotify {
   background-color: rgb(0,0,0);
   border-radius: 10px;
   margin: 0 15 0 15;
 }
-
 #rta-button {
   width: 120px;
   height: auto;
   color: #286EAC;
   padding: 7px;
 }
-
 .btn-rta {
   background-color: #286EAC;
   border-radius: 10px;
 }
-
 #spothero-button {
   width: 120px;
   height: auto;
@@ -113,13 +106,11 @@ input {
   padding: 15px;
   margin: 0 15 0 15;
 }
-
 .btn-spothero {
   background-color: rgb(256, 256, 256);
   border-radius: 10px;
   margin: 0 15 0 15;
 }
-
 #eaterchi-button {
   width: 120px;
   height: auto;
@@ -127,13 +118,11 @@ input {
   padding: 7px;
   margin: 0 15 0 15;
 }
-
 .btn-eater {
   background-color: #e70202;
   border-radius: 10px;
   margin: 0 15 0 15;
 }
-
 p {
     color: white;
     font-size: 12pt;
@@ -146,12 +135,10 @@ p {
   float: right;
 
 }
-
 #artist-name-list {
   height: 400px;
   overflow: auto;
 }
-
 th {
     color: white;
     font-weight: bold;
@@ -165,29 +152,25 @@ td {
   
 
 .nav-link {
-  color: white;
-  background-color: #ff4438;
-  border: 1px solid white;
+  color: red;
+  /* background-color: #ff4438;
+  border: 1px solid white; */
 }
-
 .nav-link:active {
   color: white;
   background: #ff3333;
   border: 1px solid white;
 }
-
 .nav-link:hover {
   color:black;
   background-color: #ff4438;
   border: 1px solid white;
 
 }
-
 .nav-tabs {
   border-bottom: 1px solid white;
 
 }
-
 .footer {
 
   position: fixed;
@@ -203,20 +186,36 @@ td {
   vertical-align: middle;
   font-size: 180%;
   letter-spacing: 30px;
-
-  }
+}
 
 .fas {
-    color: white;
-  }
+  color: white;
+}
 
 .fab {
-    color: white;
-  }
+  color: white;
+}
 
-#searchbox{
-    width: 50%;
-    border-radius: 10px;
-    margin-left: 0px;
-    float: right;
-  }
+#searchbox {
+  width: 50%;
+  border-radius: 10px;
+  margin-left: 0px;
+  float: right;
+}
+
+#img-resize  {
+  width:  100px;
+  height: auto;
+}
+
+#spotify-toptrack:hover {
+  color: white;
+  background-color: red;
+}
+
+p {
+  margin: 0 0 0 2%;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+  padding-top: 2%;
+}
