@@ -46,7 +46,7 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
+                                    <a id="spotify-button" class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
@@ -59,8 +59,8 @@
                         <div class="card-body">
                             <div class="tab-content">
                                 <div id="home" class="tab-pane active"><br>
-                                    <h3>ON SPOTIFY--need to use logo (API)</h3>
-                                    <p>Button to add to Spotify Playlist?</p>
+                                    <h3 id="spot-artist"></h3>
+                                    <!-- <p>Button to add to Spotify Playlist?</p>
                                     <table class="table table-hover" id="spotify-list">
                                         <thead>
                                             <th>ARTIST NAME</th>
@@ -74,7 +74,7 @@
                                             <td id="release-date">INFO</td>
                                             <td id="spotify-popularity">HERE</td>
                                         </tbody>
-                                    </table>
+                                    </table> -->
                                 </div>
                                 <div id="menu1" class="container tab-pane fade"><br>
                                     <h3>Playlist </h3>
@@ -106,5 +106,6 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="./proj3.js"></script>
 </body>
 </html>
