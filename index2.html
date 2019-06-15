@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +13,24 @@
     <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row card-header">
-            <img src="assets/images/lollalogo.png" id="product">
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+    <div id=bkgd-img class="responsive" alt="concert">
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <img id="product" src="assets/images/product-logo.png">
+                <br>
+                <div>
+                    <br>
+                    <h1>CHICAGO 2019</h1>
+                    <h3>---> your source for Lollapalooza details</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h4><strong>get details on your favorite performer!</strong></h4>
-                            <br>
                             <form id="band-search">
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="searchbox" name="search">
@@ -46,21 +54,21 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a id="spotify-button" class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#home">Spotify</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="spotify-playlist" class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
+                                    <a class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="spotify-toptracks" class="nav-link" data-toggle="tab" href="#menu2">TOP TRACKS</a>
+                                    <a class="nav-link" data-toggle="tab" href="#menu2">GET SOCIAL</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
                                 <div id="home" class="tab-pane active"><br>
-                                    <h3 id="spot-artist"></h3>
-                                    <!-- <p>Button to add to Spotify Playlist?</p>
+                                    <h3>ON SPOTIFY--need to use logo (API)</h3>
+                                    <p>Button to add to Spotify Playlist?</p>
                                     <table class="table table-hover" id="spotify-list">
                                         <thead>
                                             <th>ARTIST NAME</th>
@@ -74,34 +82,34 @@
                                             <td id="release-date">INFO</td>
                                             <td id="spotify-popularity">HERE</td>
                                         </tbody>
-                                    </table> -->
+                                    </table>
                                 </div>
+
                                 <div id="menu1" class="container tab-pane fade"><br>
                                     <h3>Playlist </h3>
                                     <p>Pull album cover images with AJAX request? Other stuff?</p>
-                                    <!-- <div id="artist-playlist" class="btn-group-vertical"></div> -->
-                                    <table id="artist-playlist" class="list table table-hover"></table>
                                 </div>
+
                                 <div id="menu2" class="container tab-pane fade"><br>
-                                    <h3>Top Tracks </h3>
+                                    <h3>GET SOCIAL</h3>
                                     <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted
                                         with a var for artist name?</p>
-                                        <table id="artist-toptracks" class="list table table-hover"></table>
-                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="footer">
+                <a class="active" href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-location-arrow"></i></a>
+                <a href="#"><i class="fas fa-calendar-alt"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
         </div>
     </div>
-    <div class="footer">
-            <a class="active" href="#"><i class="fas fa-user"></i></a>
-            <a href="#"><i class="fas fa-location-arrow"></i></a>
-            <a href="#"><i class="fas fa-calendar-alt"></i></a>
-            <a href="#"><i class="fab fa-spotify"></i></a>
-            <a href="#"><i class="fas fa-search"></i></a>
-        </div>
     <br>
     <!-- listjs javascript library-->
     <script src="./assets/javascript/list.min.js"></script>
@@ -109,6 +117,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/javascript/spot.js"></script>
+
 </body>
+
 </html>
