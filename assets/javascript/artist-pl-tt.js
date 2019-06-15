@@ -83,6 +83,7 @@ $("#btnTopTracks").on("click", function() {
 function getTopTracks() {
     $("#btnTopTracks").attr("class","btn btn-success");
     $("#btnPlaylists").attr("class","btn btn-secondary");
+    console.log("https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US");
     // ajax call for top tracks using artist ID and access token
     $.ajax({
         url: "https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US",
