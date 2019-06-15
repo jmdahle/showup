@@ -48,6 +48,7 @@ function getArtistInfo(a) {
                 var artistImgTag = $("<img>");
                 artistImgTag.attr("src", artistImg);
                 artistImgTag.attr("class", "artist-image");
+                artistImgTag.attr("id", "img-resize");
                 $("#spot-artist").append(artistImgTag);
                 var artistNameTag = $("<h3>");
                 artistNameTag.text(artistName);
