@@ -15,19 +15,51 @@ var tmResponse =
         tmResponse = response._embedded.attractions;
 
         // Do other things.
+        // create an artist array for use in listjs
+        var artistArray = [];
         for (j = 0; j < tmResponse.length; j++) {
             var artist_name = tmResponse[j].name;
-            var artistTr = $("<tr>");
-            var artistTd = $("<td>");
-            artistTd.text(j + ". " + artist_name);
-            artistTr.append(artistTd);
-            $("#artist-name-list").append(artistTr);
+            // comment out jquery population of table
+            // var artistTr = $("<tr>");
+            // var artistTd = $("<td>");
+            // artistTd.text(j + ". " + artist_name);
+            // artistTr.append(artistTd);
+            // $("#artist-name-list").append(artistTr);
+
+            // put the artists into an array
+            // this array will be used by listjs
+            if (artist_name !== "Lollapalooza") {
+                artistArray.push({
+                    name: artist_name,
+                    id: artist_name
+                });
+            };
+            
         }
+        console.log(artistArray);
+        // listjs javascript library
+        var options = {
+            valueNames: [
+                'name',
+                { data: ['id'] }
+            ],
+            item: '<tr data-id class="artistSelector"><td class="name"></td></tr>'
+        };
+        var artistList = new List('artist-name-list', options, artistArray);
+        // initiate search box
+        $('#searchbox').on('keyup', function () {
+            var searchString = $(this).val();
+            artistList.search(searchString);
+        });
+        // handler for buttons
+        $(".artistSelector").on("click", function () {
+            var clickedName = $(this).attr("data-id");
+            console.log("name:", clickedName);
+            getArtistInfo(clickedName);
+        });
     }, function (e) {
         // This time, we do not end up here!
         console.log("Error encountered", e);
     }
 
     );
-
-// artistObject(artistName)
