@@ -47,7 +47,7 @@ function loginSpotify() {
 function getArtistInfo(a) {
     if (spotifyActive) {
         // change to artist tab (replicate Bootstrap functionality)
-        $("#spotify-button").attr("class","nav-link active show");
+        $("#artist-button").attr("class","nav-link active show");
         $("#spotify-playlist").attr("class","nav-link");
         $("#spotify-toptracks").attr("class","nav-link");
         $("#home").attr("class","tab-pane active show");
