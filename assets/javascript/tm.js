@@ -28,10 +28,13 @@ var tmResponse =
 
             // put the artists into an array
             // this array will be used by listjs
-            artistArray.push({
-                name: artist_name,
-                id: artist_name
-            });
+            if (artist_name !== "Lollapalooza") {
+                artistArray.push({
+                    name: artist_name,
+                    id: artist_name
+                });
+            };
+            
         }
         console.log(artistArray);
         // listjs javascript library
@@ -52,6 +55,7 @@ var tmResponse =
         $(".artistSelector").on("click", function () {
             var clickedName = $(this).attr("data-id");
             console.log("name:", clickedName);
+            getArtistInfo(clickedName);
         });
     }, function (e) {
         // This time, we do not end up here!
