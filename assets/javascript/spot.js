@@ -5,26 +5,53 @@ var artistName = "";
 var artistImg = "";
 var artistUrl = "";
 var spotifyActive = false;
+var userName = "";
 
 // retrieve token returned from Spotify
 var responseSpotify = location.hash; // gets the access token from Spotify
-if (responseSpotify.length > 0) { // there is only a "hash" if spotify login returned with an access token
+if (responseSpotify.length > 0) { 
+    // there is only a "hash" if spotify login returned with an access token
     // parse the returned "hash" to extract the access token only
     var s = responseSpotify.indexOf("#access_token=") + "#access_token".length + 1;
     var e = responseSpotify.indexOf("&");
     spotifyToken = responseSpotify.substring(s, e);
     spotifyActive = true;
     console.log("token", spotifyToken);
+    // get the user name
+    getUserName();
+    // set a time for 1 hour (less 10 sec) - token will expire at that time
+    setTimeout(logBackIn,3590000); // using 10 seconds as a test
+} else {
+    spotifyActive = false;
+    $("#username").text("You are not logged in to Spotify");
 };
+
+// open the login modal if not logged in
+if (!spotifyActive) {
+    $("#login-message").text("Log in to Spotify to enjoy the full tasty goodness of ShowUp!");
+    $("#spotifyLoginModal").modal("show");
+}
 
 // respond to Spotify button click
 $("#spotify-button").on("click", function () {
-    console.log("logging in");
+    // console.log("logging in");
     if (!spotifyActive) {
         loginSpotify();
     };
 });
 
+$("#btn-login-spotify").on("click", function() {
+    if (!spotifyActive) {
+        loginSpotify();
+    }
+});
+
+function logBackIn() {
+    $("#login-message").text("Your session is about to expire.  Log back in to Spotify to enjoy the full tasty goodness of ShowUp!");
+    $("#spotifyLoginModal").modal("show");
+    spotifyToken = ""
+    spotifyActive = false;
+}
 
 /**
  * function to log in to Spotify
@@ -33,10 +60,10 @@ function loginSpotify() {
     // opens the spotify login and returns with a token
     var url = "https://accounts.spotify.com/authorize?";
     var clientId = "4e35c64cd250438684608aa0aea8fd7a";
-    returnUrl = location.href;
+    var returnUrl = location.href.substring(0,location.href.indexOf("#"));
     var scopes = "user-read-private%20user-read-email%20playlist-modify-public";
     var combinedUrl = url + "client_id=" + clientId + "&redirect_uri=" + returnUrl + "&scope=" + scopes + "&response_type=token";
-    window.open(combinedUrl, "_self");
+   window.open(combinedUrl, "_self");
 };
 
 /**
@@ -96,6 +123,23 @@ function getArtistInfo(a) {
     }
 }
 
+function getUserName() {
+    if (spotifyActive) {
+    // ajax call for user profile
+    $.ajax({
+        url: "https://api.spotify.com/v1/me",
+        headers: {
+            "Authorization": "Bearer " + spotifyToken
+        },
+        success: function (userprofile) {
+            console.log(userprofile);
+            userName = userprofile.display_name;
+            $("#username").text("You are logged in as " + userName);
+        }
+    });
+    }
+
+}
 /**
  * function retrieves playlists for the atrist from Spotify
  */
