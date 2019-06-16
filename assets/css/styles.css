@@ -5,6 +5,9 @@ body {
   background-color: black;
 }
 
+#spotifyLoginModal {
+  background-color: black;
+}
 .responsive {
   width: 100%;
   height: 100%;

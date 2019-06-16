@@ -1,108 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>showUP Chicago</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-        <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
-        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>showUP Chicago</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/bde34e978c.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
 
-    <body>
-        <div class="container-fluid">
-            <div class="row card-header">
-                <img src="assets/images/lollalogo.png" id="product">
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4><strong>get details on your favorite performer!</strong></h4>
-                            <br>
-                            <form id="band-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="searchbox" name="search">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-dark" type="submit"><i
-                                                class="fas fa-window-close"></i></button>
-                                    </div>
+<body>
+    <div class="container-fluid">
+        <div class="row card-header">
+            <img src="assets/images/lollalogo.png" id="product">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><strong>get details on your favorite performer!</strong></h4>
+                        <br>
+                        <form id="band-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchbox" name="search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-dark" type="submit"><i
+                                            class="fas fa-window-close"></i></button>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-body">
-                            <div id="artist-name-list" style="height: 400px;overflow: auto;">
-                                <table id="tm-list" class="list table table-hover"></table>
                             </div>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div id="artist-name-list" style="height: 400px;overflow: auto;">
+                            <table id="tm-list" class="list table table-hover"></table>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row">
-                                <button type="submit" class="btn-spotify">
-                                    <img id="spotify-button" src="assets/images/Spotify_Logo_RGB_Green.jpg">
-                                </button>
-                                <p class="align-middle">Log into Spotify!</p>
-                            </div>
-                            <br>
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item">
-                                    <a id="artist-button" class="nav-link active show" data-toggle="tab"
-                                        href="#home">ARTIST</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="spotify-playlist" class="nav-link" data-toggle="tab"
-                                        href="#menu1">PLAYLIST</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="spotify-toptracks" class="nav-link" data-toggle="tab" href="#menu2">TOP
-                                        TRACKS</a>
-                                </li>
-                            </ul>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <button type="submit" class="btn-spotify">
+                                <img id="spotify-button" src="assets/images/Spotify_Logo_RGB_Green.jpg">
+                            </button>
+                            <p id="username" class="align-middle">Log into Spotify!</p>
                         </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div id="home" class="tab-pane active"><br>
-                                    <div id="spot-artist"></div>
-                                </div>
-                                <div id="menu1" class="container tab-pane fade"><br>
-                                    <div id="plhead">Playlist </div>
-                                    <!-- <p>Pull album cover images with AJAX request? Other stuff?</p> -->
-                                    <!-- <div id="artist-playlist" class="btn-group-vertical"></div> -->
-                                    <table id="artist-playlist" class="list table table-hover"></table>
-                                </div>
-                                <div id="menu2" class="container tab-pane fade"><br>
-                                    <div id="tthead">Top Tracks </div>
-                                    <!-- <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted
+                        <br>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a id="artist-button" class="nav-link active show" data-toggle="tab"
+                                    href="#home">ARTIST</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="spotify-playlist" class="nav-link" data-toggle="tab" href="#menu1">PLAYLIST</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="spotify-toptracks" class="nav-link" data-toggle="tab" href="#menu2">TOP
+                                    TRACKS</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane active"><br>
+                                <div id="spot-artist"></div>
+                            </div>
+                            <div id="menu1" class="container tab-pane fade"><br>
+                                <div id="plhead">Playlist </div>
+                                <!-- <p>Pull album cover images with AJAX request? Other stuff?</p> -->
+                                <!-- <div id="artist-playlist" class="btn-group-vertical"></div> -->
+                                <table id="artist-playlist" class="list table table-hover"></table>
+                            </div>
+                            <div id="menu2" class="container tab-pane fade"><br>
+                                <div id="tthead">Top Tracks </div>
+                                <!-- <p>Could be general links to Instagram, YouTube, Facebook, etc... Could be targeted
                                         with a var for artist name?</p> -->
-                                        <table id="artist-toptracks" class="list table table-hover"></table>
-                                    </div>
+                                <table id="artist-toptracks" class="list table table-hover"></table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        <div class="footer">
-            <a class="active" href="#"><i class="fas fa-user"></i></a>
-            <a href="#"><i class="fas fa-location-arrow"></i></a>
-            <a href="#"><i class="fas fa-calendar-alt"></i></a>
-            <a href="#"><i class="fab fa-spotify"></i></a>
-            <a href="#"><i class="fas fa-search"></i></a>
-        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="footer">
+        <a class="active" href="#"><i class="fas fa-user"></i></a>
+        <a href="#"><i class="fas fa-location-arrow"></i></a>
+        <a href="#"><i class="fas fa-calendar-alt"></i></a>
+        <a href="#"><i class="fab fa-spotify"></i></a>
+        <a href="#"><i class="fas fa-search"></i></a>
+    </div>
     <br>
+
+    <!-- MODAL FOR SPOTIFY LOG IN -->
+    <!-- Modal -->
+    <div class="modal fade" id="spotifyLoginModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-black">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="textModalCenterTitle">Spotify Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="login-message" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="btn-login-spotify" type="button" class="btn btn-primary">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- listjs javascript library-->
     <script src="./assets/javascript/list.min.js"></script>
     <script src="./assets/javascript/tm.js"></script>
@@ -111,4 +133,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/javascript/spot.js"></script>
 </body>
+
 </html>
