@@ -60,7 +60,11 @@ function loginSpotify() {
     // opens the spotify login and returns with a token
     var url = "https://accounts.spotify.com/authorize?";
     var clientId = "4e35c64cd250438684608aa0aea8fd7a";
-    var returnUrl = location.href.substring(0,location.href.indexOf("#"));
+    if (location.href.indexOf("#") > 0) {
+        var returnUrl = location.href.substring(0,location.href.indexOf("#"));
+    } else {
+        var returnUrl = location.href;
+    }
     var scopes = "user-read-private%20user-read-email%20playlist-modify-public";
     var combinedUrl = url + "client_id=" + clientId + "&redirect_uri=" + returnUrl + "&scope=" + scopes + "&response_type=token";
    window.open(combinedUrl, "_self");
