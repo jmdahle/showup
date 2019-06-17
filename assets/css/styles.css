@@ -214,3 +214,9 @@ p {
   vertical-align: middle;
   padding-top: 2%;
 }
+
+.artistSelector:hover {
+  color: white;
+  background: #ff3333;
+  cursor: pointer;
+}
