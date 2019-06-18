@@ -72,18 +72,19 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <div id="home" class="tab-pane active"><br>
-                                <div id="spot-artist"></div>
+                                <div id="spot-artist" style="height: 350px;overflow: auto;">
+                                </div>
                             </div>
                             <div id="menu1" class="container tab-pane fade">
                                 <br>
                                 <div id="plhead">Playlist </div>
-                                    <div id="artist-playlist" style="height: 309px;overflow: auto;">
+                                    <div id="artist-playlist" style="height: 285px;overflow: auto;">
                                         <table id="artist-playlist" class="list table table-hover"></table>
                                     </div>
                                 </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <div id="tthead">Top Tracks </div>
-                                    <div id="artist-toptracks" style="height: 309px;overflow: auto;">
+                                    <div id="artist-toptracks" style="height: 285px;overflow: auto;">
                                         <table id="artist-toptracks" class="list table table-hover"></table>
                                     </div>
                                 </div>
@@ -97,18 +98,8 @@
     </div>
     </div>
     </div>
-
-    <!-- <div class="footer">
-        <a class="active" href="#"><i class="fas fa-user"></i></a>
-        <a href="#"><i class="fas fa-location-arrow"></i></a>
-        <a href="#"><i class="fas fa-calendar-alt"></i></a>
-        <a href="#"><i class="fab fa-spotify"></i></a>
-        <a href="#"><i class="fas fa-search"></i></a>
-    </div> -->
     <br>
 
-    <!-- MODAL FOR SPOTIFY LOG IN -->
-    <!-- Modal -->
     <div class="modal fade" id="spotifyLoginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content bg-black">
@@ -128,7 +119,6 @@
         </div>
     </div>
 
-    <!-- listjs javascript library-->
     <script src="./assets/javascript/list.min.js"></script>
     <script src="./assets/javascript/tm.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
