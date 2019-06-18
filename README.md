@@ -5,18 +5,7 @@ showUP: A Festival Guide to Performers
 
 ## Team Members
 
-
-Madeleine
-
-John
-
-Jenine 
-
-Charles
-
-Ian 
-
-Daniel
+Jenine Ellis, John Dahle, Madeleine Kemeny, Daniel Fripp, Ian Lukidis, Charles Monuma
 
 
 ## Project Description
@@ -39,9 +28,12 @@ To create a mobile responsive website that will allow a user to search Lollapalo
 
 
 ## Sketch of the Design
-• Modal to prompt the user to login to Spotify for optimal functionality.
+• Modal to prompt the user to login to Spotify for optimal functionality
+
 • List of all performers at the festival (TicketMaster API) that can be narrowed, searched, and clicked to access performer's details via Spotify (Spotfiy API)
-• Tabs of different data objects driven by Spotify API: Artist (image and external social media links); Top Tracks as ranked by Spotify; Playlist (enables user to find existing playlists on Spotify featuring a specific performer--dentified through TicktMaster API--and create custom playlists that are saved to user's own Spotify account if they are logged in.
+
+• Tabs of different data objects driven by Spotify API: Artist (image and external social media links); Top Tracks as ranked by Spotify; Playlist (enables user to find existing playlists on Spotify featuring a specific performer--dentified through TicktMaster API--and create custom playlists that are saved to user's own Spotify account if they are logged in
+
 
 
 ###MVP
@@ -60,12 +52,17 @@ MVP User Stories
 TicketMaster API
 Spotify API
 
-## Rough breakdown of tasks
-Jenine Ellis: Project Manager, API Research, JS Developer, Code Reviewer.
-John Dahle: R & D--API usage; JS Developer; Code Reviewer.
-Madeleine Kemeny: R & D--UI/UX; Code Reviewer; Presentation Developer.
-Daniel Fripp: JS Developer, Bootstrap Wrangler, Code Reviewer.
-Ian Lukidis: JS Developer, Code Reviewer.
-Charles Monuma: Presentation Developer, Code Reviewer.
+## Breakdown of project tasks
+Jenine Ellis: Project Manager, API Research, JS Developer, Code Reviewer
+
+John Dahle: R & D--API usage; JS Developer; Code Reviewer
+
+Madeleine Kemeny: R & D--UI/UX; Code Reviewer; Presentation Developer
+
+Daniel Fripp: JS Developer, Bootstrap Wrangler, Code Reviewer
+
+Ian Lukidis: JS Developer, Code Reviewer
+
+Charles Monuma: Presentation Developer, Code Reviewer
 
 
