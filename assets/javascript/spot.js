@@ -28,7 +28,7 @@ if (responseSpotify.length > 0) {
 
 // open the login modal if not logged in
 if (!spotifyActive) {
-    $("#login-message").text("Log in to Spotify to enjoy the full tasty goodness of ShowUp!");
+    $("#login-message").text("Log in to Spotify to access the features of showUp!");
     $("#spotifyLoginModal").modal("show");
 }
 
@@ -170,7 +170,7 @@ function getPlaylist() {
  */
 function populatePlaylists(r) {
     $("#artist-playlist").empty();
-    $("#plhead").html("<h3>Playlists<br>" + artistName + "</h3>"); 
+    $("#plhead").html("<h3>" + artistName + "<br></h3>"); 
     for (var i = 0; i < r.playlists.items.length; i++) {
         var plName = r.playlists.items[i].name;
         var plUrl = r.playlists.items[i].external_urls.spotify;
@@ -222,7 +222,7 @@ function getTopTracks() {
  */
 function populateTopTracks(r) {
     $("#artist-toptracks").empty();
-    $("#tthead").html("<h3>Top Tracks<br>" + artistName + "</h3>"); 
+    $("#tthead").html("<h3>" + artistName + "<br></h3>"); 
     for (var i = 0; i < r.tracks.length; i++) {
         var trName = r.tracks[i].name;
         var trUrl = r.tracks[i].external_urls.spotify;
