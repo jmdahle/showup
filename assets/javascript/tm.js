@@ -19,6 +19,9 @@ var tmResponse =
         var artistArray = [];
         for (j = 0; j < tmResponse.length; j++) {
             var artist_name = tmResponse[j].name;
+            socialObject = tmResponse[j].externalLinks;
+            // console.log(socialObject);
+            // var fbLink = socialObject.facebook;
             // comment out jquery population of table
             // var artistTr = $("<tr>");
             // var artistTd = $("<td>");
@@ -31,19 +34,33 @@ var tmResponse =
             if (artist_name !== "Lollapalooza") {
                 artistArray.push({
                     name: artist_name,
-                    id: artist_name
+                    id: artist_name,
+                    art: JSON.stringify(socialObject)
                 });
             };
-            
+            var artistList = new List('artist-name-list', options, artistArray);
+            // initiate search box
+            $('#searchbox').on('keyup', function () {
+                var searchString = $(this).val();
+                artistList.search(searchString);
+            });
+            // handler for buttons
+            $(".artistSelector").on("click", function () {
+                var clickedName = $(this).attr("data-id");
+                // adding a second arg for data art to pass to the function update spot.js to handle data-art
+                var artistSocial = $(this).attr("data-art");
+                getArtistInfo(clickedName, artistSocial);
+            });
         }
         console.log(artistArray);
         // listjs javascript library
         var options = {
             valueNames: [
                 'name',
-                { data: ['id'] }
+                { data: ['id'] },
+                { data: ['art'] }
             ],
-            item: '<tr data-id class="artistSelector"><td class="name"></td></tr>'
+            item: '<tr data-id data-art class="artistSelector"><td class="name"></td></tr>'
         };
         var artistList = new List('artist-name-list', options, artistArray);
         // initiate search box
@@ -54,8 +71,9 @@ var tmResponse =
         // handler for buttons
         $(".artistSelector").on("click", function () {
             var clickedName = $(this).attr("data-id");
+            var socialInfo = $(this).attr("data-art");
             console.log("name:", clickedName);
-            getArtistInfo(clickedName);
+            getArtistInfo(clickedName, socialInfo);
         });
     }, function (e) {
         // This time, we do not end up here!

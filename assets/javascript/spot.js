@@ -9,7 +9,7 @@ var userName = "";
 
 // retrieve token returned from Spotify
 var responseSpotify = location.hash; // gets the access token from Spotify
-if (responseSpotify.length > 0) { 
+if (responseSpotify.length > 0) {
     // there is only a "hash" if spotify login returned with an access token
     // parse the returned "hash" to extract the access token only
     var s = responseSpotify.indexOf("#access_token=") + "#access_token".length + 1;
@@ -20,7 +20,7 @@ if (responseSpotify.length > 0) {
     // get the user name
     getUserName();
     // set a time for 1 hour (less 10 sec) - token will expire at that time
-    setTimeout(logBackIn,3590000); // using 10 seconds as a test
+    setTimeout(logBackIn, 3590000); // using 10 seconds as a test
 } else {
     spotifyActive = false;
     $("#username").text("You are not logged in to Spotify");
@@ -40,7 +40,7 @@ $("#spotify-button").on("click", function () {
     };
 });
 
-$("#btn-login-spotify").on("click", function() {
+$("#btn-login-spotify").on("click", function () {
     if (!spotifyActive) {
         loginSpotify();
     }
@@ -61,13 +61,13 @@ function loginSpotify() {
     var url = "https://accounts.spotify.com/authorize?";
     var clientId = "4e35c64cd250438684608aa0aea8fd7a";
     if (location.href.indexOf("#") > 0) {
-        var returnUrl = location.href.substring(0,location.href.indexOf("#"));
+        var returnUrl = location.href.substring(0, location.href.indexOf("#"));
     } else {
         var returnUrl = location.href;
     }
     var scopes = "user-read-private%20user-read-email%20playlist-modify-public";
     var combinedUrl = url + "client_id=" + clientId + "&redirect_uri=" + returnUrl + "&scope=" + scopes + "&response_type=token";
-   window.open(combinedUrl, "_self");
+    window.open(combinedUrl, "_self");
 };
 
 /**
@@ -75,55 +75,87 @@ function loginSpotify() {
  * 
  * @param {string} a // artist name used in search
  */
-function getArtistInfo(a) {
+function getArtistInfo(a, social) {
     if (spotifyActive) {
         // change to artist tab (replicate Bootstrap functionality)
-        $("#artist-button").attr("class","nav-link active show");
-        $("#spotify-playlist").attr("class","nav-link");
-        $("#spotify-toptracks").attr("class","nav-link");
-        $("#home").attr("class","tab-pane active show");
-        $("#menu1").attr("class","container tab-pane fade");
-        $("#menu2").attr("class","container tab-pane fade");
-        a = a.replace(" ", "+");
+        $("#artist-button").attr("class", "nav-link active show");
+        $("#spotify-playlist").attr("class", "nav-link");
+        $("#spotify-toptracks").attr("class", "nav-link");
+        $("#home").attr("class", "tab-pane active show");
+        $("#menu1").attr("class", "container tab-pane fade");
+        $("#menu2").attr("class", "container tab-pane fade");
+        // a = a.replace(" ", "+");
         $.ajax({
-            url: "https://api.spotify.com/v1/search?q=" + a + "&type=artist",
+            url: "https://api.spotify.com/v1/search?q=" + a.replace(" ","+") + "&type=artist",
             headers: {
                 "Authorization": "Bearer " + spotifyToken
             },
             success: function (r1) {
                 $("#spot-artist").empty();
                 console.log(r1);
-                artistName = r1.artists.items[0].name;
-                artistId = r1.artists.items[0].id;
-                console.log(artistId);
-                artistImg = r1.artists.items[0].images[0].url;
-                artistUrl = r1.artists.items[0].external_urls.spotify;
-                var topRow = $("<h3>");
-                topRow.text(artistName);
-                topRow.attr("class", "artist-image pad");
-                var spacer = $("<br>");
-                var artRow = $("<div>");
-                artRow.attr("class","row");
-                var artCol0 = $("<div>");
-                artCol0.attr("class","col-md-4");
-                var artCol1 = $("<div>");
-                artCol1.attr("class", "col-md-8");
-                var artistImgTag = $("<img>");
-                artistImgTag.attr("src", artistImg);
-                artistImgTag.attr("class", "artist-image");
-                artistImgTag.attr("id", "img-resize");
-                var artistNameTag = $("<h3>");
-                artistNameTag.text("Social Media");
-                artCol0.append(artistImgTag);
-                artCol1.append(artistNameTag);
-                artRow.append(artCol0);
-                artRow.append(artCol1);
-                $("#spot-artist").append(topRow);
-                $("#spot-artist").append(spacer);
-                $("#spot-artist").append(artRow);
-                $(".artist-image").on("click", function () {
-                    window.open(artistUrl, "spotifyWindow");
-                });
+                console.log(r1.artists.length);
+                // if (r1.artists.length > 0) {
+                    artistName = r1.artists.items[0].name;
+                    artistId = r1.artists.items[0].id;
+                    console.log(artistId);
+                    artistImg = r1.artists.items[0].images[0].url;
+                    artistUrl = r1.artists.items[0].external_urls.spotify;
+                    var topRow = $("<h3>");
+                    topRow.text(artistName);
+                    topRow.attr("class", "artist-image pad");
+                    var spacer = $("<br>");
+                    var artRow = $("<div>");
+                    artRow.attr("class", "row");
+                    var artCol0 = $("<div>");
+                    artCol0.attr("class", "col-md-4");
+                    var artCol1 = $("<div>");
+                    artCol1.attr("class", "col-md-8");
+                    var artistImgTag = $("<img>");
+                    artistImgTag.attr("src", artistImg);
+                    artistImgTag.attr("class", "artist-image");
+                    artistImgTag.attr("id", "img-resize");
+                    var artistNameTag = $("<h3>");
+                    // add social media links
+                    socialObject = JSON.parse(social);
+                    console.log(socialObject);
+                    if (socialObject.facebook[0].url !== undefined) {
+                        console.log(socialObject.facebook[0].url)
+                        var fbLink = "<a class='soc-link' href='" + socialObject.facebook[0].url + "' target='socialMedia'>Facebook</a><br><br>";
+                    } else {
+                        var fbLinlk = "No Facebook account found.<br>";
+                    }
+                    if (socialObject.twitter[0].url !== undefined) {
+                        var twLink = "<a class='soc-link' href='" + socialObject.twitter[0].url + "' target='socialMedia'>Twitter</a><br><br>";
+                    } else {
+                        var twLink = "No Twitter account found.<br>";
+                    }
+                    if (socialObject.hasOwnProperty("instagram")) {
+                        var igLink = "<a class='soc-link' href='" + socialObject.instagram[0].url + "' target='socialMedia'>Instagram</a><br><br>";
+                    } else {
+                        var igLink = "No Instagram account found.<br>";
+                    }
+                    artistNameTag.html(fbLink + twLink + igLink);
+                    // artistNameTag.text("Social Media");
+                    artCol0.append(artistImgTag);
+                    artCol1.append(artistNameTag);
+                    artRow.append(artCol0);
+                    artRow.append(artCol1);
+                    $("#spot-artist").append(topRow);
+                    $("#spot-artist").append(spacer);
+                    $("#spot-artist").append(artRow);
+                    $(".artist-image").on("click", function () {
+                        window.open(artistUrl, "spotifyWindow");
+                    });
+                // } else {
+                //     // artist not found at Spotify
+                //     var topRow = $("<h3>");
+                //     topRow.text(a);
+                //     var spacer = $("<br>");
+                //     var notFound = $("<p>");
+                //     notFound.text("Artist not found in Spotify");
+                //     $("#spot-artist").append(topRow);
+                //     $("#spot-artist").append(spacer);
+                // }
             }
         })
 
@@ -132,18 +164,18 @@ function getArtistInfo(a) {
 
 function getUserName() {
     if (spotifyActive) {
-    // ajax call for user profile
-    $.ajax({
-        url: "https://api.spotify.com/v1/me",
-        headers: {
-            "Authorization": "Bearer " + spotifyToken
-        },
-        success: function (userprofile) {
-            console.log(userprofile);
-            userName = userprofile.display_name;
-            $("#username").text("You are logged in as " + userName);
-        }
-    });
+        // ajax call for user profile
+        $.ajax({
+            url: "https://api.spotify.com/v1/me",
+            headers: {
+                "Authorization": "Bearer " + spotifyToken
+            },
+            success: function (userprofile) {
+                console.log(userprofile);
+                userName = userprofile.display_name;
+                $("#username").text("You are logged in as " + userName);
+            }
+        });
     }
 
 }
@@ -173,7 +205,7 @@ function getPlaylist() {
  */
 function populatePlaylists(r) {
     $("#artist-playlist").empty();
-    $("#plhead").html("<h3>" + artistName + "</h3><br>"); 
+    $("#plhead").html("<h3>" + artistName + "</h3><br>");
     for (var i = 0; i < r.playlists.items.length; i++) {
         var plName = r.playlists.items[i].name;
         var plUrl = r.playlists.items[i].external_urls.spotify;
@@ -225,7 +257,7 @@ function getTopTracks() {
  */
 function populateTopTracks(r) {
     $("#artist-toptracks").empty();
-    $("#tthead").html("<h3>" + artistName + "</h3><br>"); 
+    $("#tthead").html("<h3>" + artistName + "</h3><br>");
     for (var i = 0; i < r.tracks.length; i++) {
         var trName = r.tracks[i].name;
         var trUrl = r.tracks[i].external_urls.spotify;
