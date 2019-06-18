@@ -19,10 +19,9 @@ $.ajax({
     var artistArray = [];
     for (j = 0; j < tmResponse.length; j++) {
         var artist_name = tmResponse[j].name;
-        var tm_artistid = tmResponse[j].id;
-        const artistsocial = JSON.stringify(tm_artistid);
-        console.log(artistsocial);
-        console.log(JSON.parse(artistsocial));
+        var artistSocial = tmResponse[j].externalLinks;
+        console.log(artistSocial);
+        // Tying to get just the social using the tm api
         // var artist_facebook = tmResponse[j].externalLinks.facebook[0].url;
         // // var artist_instagram = tmResponse[j].externalLinks.instagram[0].url;
         // // var artist_twitter = tmResponse[j].externalLinks.twitter[0].url;
@@ -53,7 +52,7 @@ $.ajax({
             artistArray.push({
                 name: artist_name,
                 id: artist_name,
-                art: tm_artistid
+                art: JSON.stringify(artistSocial)
             });
         };
     }
@@ -77,8 +76,8 @@ $.ajax({
     $(".artistSelector").on("click", function () {
         var clickedName = $(this).attr("data-id");
         // adding a second arg for data art to pass to the function update spot.js to handle data-art
-        var artistSocial = $(this).attr("data-art");
-        getArtistInfo(clickedName);
+        var artistsocial = $(this).attr("data-art");
+        getArtistInfo(clickedName, artistSocial);
     });
         }, function (e) {
         // This time, we do not end up here!
