@@ -175,7 +175,7 @@ td {
 }
 
 #img-resize  {
-  width:  100px;
+  width:  100%;
   height: auto;
 }
 
@@ -213,4 +213,8 @@ p {
 .trackOption:hover {
   background: black;
   cursor: pointer;
+}
+
+.pad {
+  padding-left: 15px;
 }

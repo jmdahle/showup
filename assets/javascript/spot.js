@@ -98,7 +98,10 @@ function getArtistInfo(a) {
                 console.log(artistId);
                 artistImg = r1.artists.items[0].images[0].url;
                 artistUrl = r1.artists.items[0].external_urls.spotify;
-                // add artist image and name to page
+                var topRow = $("<h3>");
+                topRow.text(artistName);
+                topRow.attr("class", "artist-image pad");
+                var spacer = $("<br>");
                 var artRow = $("<div>");
                 artRow.attr("class","row");
                 var artCol0 = $("<div>");
@@ -109,14 +112,14 @@ function getArtistInfo(a) {
                 artistImgTag.attr("src", artistImg);
                 artistImgTag.attr("class", "artist-image");
                 artistImgTag.attr("id", "img-resize");
-                $("#spot-artist").append(artistImgTag);
                 var artistNameTag = $("<h3>");
-                artistNameTag.text(artistName);
-                artistNameTag.attr("class", "artist-image");
+                artistNameTag.text("Social Media");
                 artCol0.append(artistImgTag);
                 artCol1.append(artistNameTag);
                 artRow.append(artCol0);
                 artRow.append(artCol1);
+                $("#spot-artist").append(topRow);
+                $("#spot-artist").append(spacer);
                 $("#spot-artist").append(artRow);
                 $(".artist-image").on("click", function () {
                     window.open(artistUrl, "spotifyWindow");
@@ -170,7 +173,7 @@ function getPlaylist() {
  */
 function populatePlaylists(r) {
     $("#artist-playlist").empty();
-    $("#plhead").html("<h3>" + artistName + "<br></h3>"); 
+    $("#plhead").html("<h3>" + artistName + "</h3><br>"); 
     for (var i = 0; i < r.playlists.items.length; i++) {
         var plName = r.playlists.items[i].name;
         var plUrl = r.playlists.items[i].external_urls.spotify;
@@ -222,7 +225,7 @@ function getTopTracks() {
  */
 function populateTopTracks(r) {
     $("#artist-toptracks").empty();
-    $("#tthead").html("<h3>" + artistName + "<br></h3>"); 
+    $("#tthead").html("<h3>" + artistName + "</h3><br>"); 
     for (var i = 0; i < r.tracks.length; i++) {
         var trName = r.tracks[i].name;
         var trUrl = r.tracks[i].external_urls.spotify;
