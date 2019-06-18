@@ -253,7 +253,7 @@ function getTopTracks() {
         });
     } else {
         // could not find playlist
-        $("#artist-playlist").empty();
+        $("#artist-toptracks").empty();
         $("#tthead").html("<h3>" + artistName + "</h3><br><br><p>Artist top tracks not avaialble from spotify");    
     }
 }
