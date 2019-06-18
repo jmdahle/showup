@@ -32,13 +32,16 @@ if (!spotifyActive) {
     $("#spotifyLoginModal").modal("show");
 }
 
-// respond to Spotify button click
+// respond to Spotify logo button click
 $("#spotify-button").on("click", function () {
     if (!spotifyActive) {
-        loginSpotify();
+        // loginSpotify();
+        $("#login-message").text("Log in to Spotify to access the features of showUp!");
+        $("#spotifyLoginModal").modal("show");
     };
 });
 
+// respond to Spotify modal button click
 $("#btn-login-spotify").on("click", function () {
     if (!spotifyActive) {
         loginSpotify();
@@ -75,16 +78,16 @@ function loginSpotify() {
  * @param {string} a // artist name used in search
  */
 function getArtistInfo(a, social) {
+    // change to artist tab (replicate Bootstrap functionality)
+    $("#artist-button").attr("class", "nav-link active show");
+    $("#spotify-playlist").attr("class", "nav-link");
+    $("#spotify-toptracks").attr("class", "nav-link");
+    $("#home").attr("class", "tab-pane active show");
+    $("#menu1").attr("class", "container tab-pane fade");
+    $("#menu2").attr("class", "container tab-pane fade");
     if (spotifyActive) {
-        // change to artist tab (replicate Bootstrap functionality)
-        $("#artist-button").attr("class", "nav-link active show");
-        $("#spotify-playlist").attr("class", "nav-link");
-        $("#spotify-toptracks").attr("class", "nav-link");
-        $("#home").attr("class", "tab-pane active show");
-        $("#menu1").attr("class", "container tab-pane fade");
-        $("#menu2").attr("class", "container tab-pane fade");
         $.ajax({
-            url: "https://api.spotify.com/v1/search?q=" + a.replace(" ","+") + "&type=artist",
+            url: "https://api.spotify.com/v1/search?q=" + a.replace(" ", "+") + "&type=artist",
             headers: {
                 "Authorization": "Bearer " + spotifyToken
             },
@@ -142,11 +145,12 @@ function getArtistInfo(a, social) {
                         window.open(artistUrl, "spotifyWindow");
                     });
                 } else {
+                    $("#spot-artist").empty();
                     // artist not found at Spotify
                     artistName = a;
                     artistId = "";
                     artistImg = "";
-                    artistUrl = "";                    
+                    artistUrl = "";
                     var topRow = $("<h3>");
                     topRow.text(a);
                     var spacer = $("<br>");
@@ -159,6 +163,21 @@ function getArtistInfo(a, social) {
             }
         })
 
+    } else {
+        $("#spot-artist").empty();
+        // not logged into spotify
+        artistName = a;
+        artistId = "";
+        artistImg = "";
+        artistUrl = "";
+        var topRow = $("<h3>");
+        topRow.text(a);
+        var spacer = $("<br>");
+        var notLoggedIn = $("<p>");
+        notLoggedIn.text("You are not logged into Spotify.  To experience the full functionality of showUP, please click the Spotify logo and log in to your Spotify account.");
+        $("#spot-artist").append(topRow);
+        $("#spot-artist").append(spacer);
+        $("#spot-artist").append(notLoggedIn);
     }
 }
 
@@ -183,7 +202,7 @@ function getUserName() {
  * function retrieves playlists for the atrist from Spotify
  */
 function getPlaylist() {
-    if (spotifyActive  && artistId !== "") {
+    if (spotifyActive && artistId !== "") {
         // ajax call for playlists featuring this artist
         $.ajax({
             url: "https://api.spotify.com/v1/search?q=" + artistName + "&type=playlist",
@@ -198,7 +217,7 @@ function getPlaylist() {
     } else {
         // could not find playlist
         $("#artist-playlist").empty();
-        $("#plhead").html("<h3>" + artistName + "</h3><br><br><p>Artist playlists not avaialble from spotify");    
+        $("#plhead").html("<h3>" + artistName + "</h3><br><br><p>Artist playlists not avaialble from spotify");
     }
 }
 
@@ -254,7 +273,7 @@ function getTopTracks() {
     } else {
         // could not find playlist
         $("#artist-toptracks").empty();
-        $("#tthead").html("<h3>" + artistName + "</h3><br><br><p>Artist top tracks not avaialble from spotify");    
+        $("#tthead").html("<h3>" + artistName + "</h3><br><br><p>Artist top tracks not avaialble from spotify");
     }
 }
 
