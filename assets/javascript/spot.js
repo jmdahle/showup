@@ -34,7 +34,6 @@ if (!spotifyActive) {
 
 // respond to Spotify button click
 $("#spotify-button").on("click", function () {
-    // console.log("logging in");
     if (!spotifyActive) {
         loginSpotify();
     };
@@ -84,7 +83,6 @@ function getArtistInfo(a, social) {
         $("#home").attr("class", "tab-pane active show");
         $("#menu1").attr("class", "container tab-pane fade");
         $("#menu2").attr("class", "container tab-pane fade");
-        // a = a.replace(" ", "+");
         $.ajax({
             url: "https://api.spotify.com/v1/search?q=" + a.replace(" ","+") + "&type=artist",
             headers: {
@@ -92,9 +90,9 @@ function getArtistInfo(a, social) {
             },
             success: function (r1) {
                 $("#spot-artist").empty();
-                console.log(r1);
-                console.log(r1.artists.length);
-                // if (r1.artists.length > 0) {
+                console.log(r1);    
+                var returnedArtists = r1.artists.items
+                if (returnedArtists.length > 0) {
                     artistName = r1.artists.items[0].name;
                     artistId = r1.artists.items[0].id;
                     console.log(artistId);
@@ -117,25 +115,23 @@ function getArtistInfo(a, social) {
                     var artistNameTag = $("<h3>");
                     // add social media links
                     socialObject = JSON.parse(social);
-                    console.log(socialObject);
-                    if (socialObject.facebook[0].url !== undefined) {
+                    if (socialObject.hasOwnProperty("facebook")) {
                         console.log(socialObject.facebook[0].url)
                         var fbLink = "<a class='soc-link' href='" + socialObject.facebook[0].url + "' target='socialMedia'>Facebook</a><br><br>";
                     } else {
-                        var fbLinlk = "No Facebook account found.<br>";
+                        var fbLink = "No Facebook account found.<br><br>";
                     }
-                    if (socialObject.twitter[0].url !== undefined) {
+                    if (socialObject.hasOwnProperty("twitter")) {
                         var twLink = "<a class='soc-link' href='" + socialObject.twitter[0].url + "' target='socialMedia'>Twitter</a><br><br>";
                     } else {
-                        var twLink = "No Twitter account found.<br>";
+                        var twLink = "No Twitter account found.<br><br>";
                     }
                     if (socialObject.hasOwnProperty("instagram")) {
                         var igLink = "<a class='soc-link' href='" + socialObject.instagram[0].url + "' target='socialMedia'>Instagram</a><br><br>";
                     } else {
-                        var igLink = "No Instagram account found.<br>";
+                        var igLink = "No Instagram account found.<br><br>";
                     }
                     artistNameTag.html(fbLink + twLink + igLink);
-                    // artistNameTag.text("Social Media");
                     artCol0.append(artistImgTag);
                     artCol1.append(artistNameTag);
                     artRow.append(artCol0);
@@ -146,16 +142,21 @@ function getArtistInfo(a, social) {
                     $(".artist-image").on("click", function () {
                         window.open(artistUrl, "spotifyWindow");
                     });
-                // } else {
-                //     // artist not found at Spotify
-                //     var topRow = $("<h3>");
-                //     topRow.text(a);
-                //     var spacer = $("<br>");
-                //     var notFound = $("<p>");
-                //     notFound.text("Artist not found in Spotify");
-                //     $("#spot-artist").append(topRow);
-                //     $("#spot-artist").append(spacer);
-                // }
+                } else {
+                    // artist not found at Spotify
+                    artistName = a;
+                    artistId = "";
+                    artistImg = "";
+                    artistUrl = "";                    
+                    var topRow = $("<h3>");
+                    topRow.text(a);
+                    var spacer = $("<br>");
+                    var notFound = $("<p>");
+                    notFound.text("Artist not found in Spotify");
+                    $("#spot-artist").append(topRow);
+                    $("#spot-artist").append(spacer);
+                    $("#spot-artist").append(notFound);
+                }
             }
         })
 
@@ -183,7 +184,7 @@ function getUserName() {
  * function retrieves playlists for the atrist from Spotify
  */
 function getPlaylist() {
-    if (spotifyActive) {
+    if (spotifyActive  && artistId !== "") {
         // ajax call for playlists featuring this artist
         $.ajax({
             url: "https://api.spotify.com/v1/search?q=" + artistName + "&type=playlist",
@@ -195,6 +196,10 @@ function getPlaylist() {
                 populatePlaylists(r2);
             }
         });
+    } else {
+        // could not find playlist
+        $("#artist-playlist").empty();
+        $("#plhead").html("<h3>" + artistName + "</h3><br><br><p>Artist playlists not avaialble from spotify");    
     }
 }
 
@@ -235,7 +240,7 @@ function populatePlaylists(r) {
  * function retrieves top tracks from spotify
  */
 function getTopTracks() {
-    if (spotifyActive) {
+    if (spotifyActive && artistId !== "") {
         // ajax call for top tracks using artist ID and access token
         $.ajax({
             url: "https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US",
@@ -247,6 +252,10 @@ function getTopTracks() {
                 populateTopTracks(r3);
             }
         });
+    } else {
+        // could not find playlist
+        $("#artist-playlist").empty();
+        $("#tthead").html("<h3>" + artistName + "</h3><br><br><p>Artist top tracks not avaialble from spotify");    
     }
 }
 

@@ -13,7 +13,7 @@ $.ajax({
 }).then(function (response) {
     // Parse the response.
     tmResponse = response._embedded.attractions;
-
+    
     // create an artist array for use in listjs
     var artistArray = [];
     for (j = 0; j < tmResponse.length; j++) {
@@ -21,32 +21,9 @@ $.ajax({
         var artist_name = tmResponse[j].name;
        // capture attractopm/artists' social media links
         var artistSocial = tmResponse[j].externalLinks;
-
-        // Tying to get just the social using the tm api
-        // var artist_facebook = tmResponse[j].externalLinks.facebook[0].url;
-        // // var artist_instagram = tmResponse[j].externalLinks.instagram[0].url;
-        // // var artist_twitter = tmResponse[j].externalLinks.twitter[0].url;
-
-        // // Get facebook url that is at response._embedded.attractions.name.externalLinks.facebook.url
-        // if (tmResponse[j].externalLinks.facebook !== undefined) {
-        //     var artist_facebook = tmResponse[j].externalLinks.facebook[0].url;
-        // }
-        // // Get instagram url that is at response._embedded.attractions.name.externalLinks.instagram.url
-        //     if (tmResponse[j].externalLinks.instagram !== undefined) {
-        //         var artist_instagram = tmResponse[j].externalLinks.instagram[0].url;
-        //     }
-        // // Get twitter url that is at response._embedded.attractions.name.externalLinks.twitter.url
-        //     if (tmResponse[j].externalLinks.twitter !== undefined) {
-        //         var artist_twitter = tmResponse[j].externalLinks.twitter[0].url;
-        //     }
-
-        // comment out jquery population of table
-        // var artistTr = $("<tr>");
-        // var artistTd = $("<td>");
-        // artistTd.text(j + ". " + artist_name);
-        // artistTr.append(artistTd);
-        // $("#artist-name-list").append(artistTr);
-
+        if (artistSocial == undefined) {
+            artistSocial = "{social: 'none'}";
+        }
         // put the artists into an array
         // this array will be used by listjs
         if (artist_name !== "Lollapalooza") {
@@ -58,7 +35,7 @@ $.ajax({
             });
         };
     }
-    console.log("Show" + artistArray);
+    // console.log("Show" + artistArray);
     // listjs javascript library
     var options = {
         valueNames: [
@@ -74,14 +51,20 @@ $.ajax({
         var searchString = $(this).val();
         artistList.search(searchString);
     });
+    //handler for clear search box button
+    $("#clearBtn").on("click", function() {
+        event.preventDefault();
+        $("#searchbox").val("");
+        artistList.search("");
+    });
     // handler for buttons
     $(".artistSelector").on("click", function () {
         var clickedName = $(this).attr("data-id");
         // adding a second arg for data art to pass to the function update spot.js to handle data-art
         var artistSocial = $(this).attr("data-art");
         getArtistInfo(clickedName, artistSocial);
-        console.log("HERE")
     });
 }, function (e) {
 }
 );
+
