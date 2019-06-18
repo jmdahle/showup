@@ -11,6 +11,7 @@ $.ajax({
     url: tmApiUrl,
     method: "GET"
 }).then(function (response) {
+    console.log("Response: ", response);
     // Parse the response.
     tmResponse = response._embedded.attractions;
 
@@ -19,29 +20,9 @@ $.ajax({
     var artistArray = [];
     for (j = 0; j < tmResponse.length; j++) {
         var artist_name = tmResponse[j].name;
-        // var tm_artistid = tmResponse[j].id;
-        // const artistsocial = JSON.stringify(tm_artistid);
-        // console.log(artistsocial);
-        // console.log(JSON.parse(artistsocial));
         var socialObject = tmResponse[j].externalLinks;
         console.log(socialObject);
-        // var artist_facebook = tmResponse[j].externalLinks.facebook[0].url;
-        // // var artist_instagram = tmResponse[j].externalLinks.instagram[0].url;
-        // // var artist_twitter = tmResponse[j].externalLinks.twitter[0].url;
-
-        // // Get facebook url that is at response._embedded.attractions.name.externalLinks.facebook.url
-        // if (tmResponse[j].externalLinks.facebook !== undefined) {
-        //     var artist_facebook = tmResponse[j].externalLinks.facebook[0].url;
-        // }
-        // // Get instagram url that is at response._embedded.attractions.name.externalLinks.instagram.url
-        //     if (tmResponse[j].externalLinks.instagram !== undefined) {
-        //         var artist_instagram = tmResponse[j].externalLinks.instagram[0].url;
-        //     }
-        // // Get twitter url that is at response._embedded.attractions.name.externalLinks.twitter.url
-        //     if (tmResponse[j].externalLinks.twitter !== undefined) {
-        //         var artist_twitter = tmResponse[j].externalLinks.twitter[0].url;
-        //     }
-
+        // var fbLink = socialObject.facebook;
         // comment out jquery population of table
         // var artistTr = $("<tr>");
         // var artistTd = $("<td>");
@@ -58,8 +39,21 @@ $.ajax({
                 art: JSON.stringify(socialObject)
             });
         };
+        var artistList = new List('artist-name-list', options, artistArray);
+        // initiate search box
+        $('#searchbox').on('keyup', function () {
+            var searchString = $(this).val();
+            artistList.search(searchString);
+        });
+        // handler for buttons
+        $(".artistSelector").on("click", function () {
+            var clickedName = $(this).attr("data-id");
+            // adding a second arg for data art to pass to the function update spot.js to handle data-art
+            var artistSocial = $(this).attr("data-art");
+            getArtistInfo(clickedName, artistSocial);
+        });
     }
-    console.log("Show" + artistArray);
+    console.log(artistArray);
     // listjs javascript library
     var options = {
         valueNames: [
@@ -71,18 +65,20 @@ $.ajax({
     };
     var artistList = new List('artist-name-list', options, artistArray);
     // initiate search box
-    $('#searchbox').on('keyup', function () {
+    $("#searchbox").on("keyup", function () {
         var searchString = $(this).val();
         artistList.search(searchString);
     });
     // handler for buttons
     $(".artistSelector").on("click", function () {
         var clickedName = $(this).attr("data-id");
-        // adding a second arg for data art to pass to the function update spot.js to handle data-art
-        var artistSocial = $(this).attr("data-art");
-        getArtistInfo(clickedName, artistSocial);
+        var socialInfo = $(this).attr("data-art");
+        console.log("name:", clickedName);
+        getArtistInfo(clickedName, socialInfo);
     });
-        }, function (e) {
-        // This time, we do not end up here!
-    }
-    );
+}, function (e) {
+    // This time, we do not end up here!
+    console.log("Error encountered", e);
+}
+
+);
