@@ -1,26 +1,71 @@
-# team3project
-# Foobar
+# Team 3 Project
 
-Foobar is a Python library for dealing with word pluralization.
+## Project Title
+showUP: A Festival Guide to Performers
 
-## Installation
-How to install
-1.
-2.
-3.
-
-## Usage
-
-How to use
-1.
-2.
-3. 
+## Team Members
 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Madeleine
 
-Please make sure to update tests as appropriate.
+John
 
-## License
+Jenine 
+
+Charles
+
+Ian 
+
+Dan
+
+
+## Project Description
+
+
+#### Summary
+To create a mobile responsive website that will allow a user to search Lollapalooza for artists. The app will have a complete list of performers for the festival. The user will be able to select a performer, see and use links to the performer's external social media, access their "top tracks" through Spotify, and save playlists for that performer to the user's Spotify account. The user is able to log out and when they log back in, their selections are saved in their Spotify account.
+
+
+#### Project Requirements
+*Min of 2 APIs - Ticketmaster api for event, Spotify API for song playlist
+*Using Ajax to capture API data
+*UI/UX - Developers assigned to focus on Design focusing on look and feel
+*Coding Standard -Assigned Developer to maintain code continuity and standards
+*Do NOT use alerts, confirms or prompts (use Modals) - Requirement is captured as part of the product design
+*Incorporate some repeating element (table columns, etc) - Requirement is captured as part of the product design
+*Use Bootstrap or another CSS framework - Requirement is captured as part of the product design
+*Deploy to GitHub Pages - Implemented https://github.com/jmdahle/team3project
+*Include user input validation - Requirement is captured as part of the product design
+
+
+## Sketch of the Design
+• Modal to prompt the user to login to Spotify for optimal functionality.
+• List of all performers at the festival (TicketMaster API) that can be narrowed, searched, and clicked to access performer's details via Spotify (Spotfiy API)
+• Tabs of different data objects driven by Spotify API: Artist (image and external social media links); Top Tracks as ranked by Spotify; Playlist (enables user to find existing playlists on Spotify featuring a specific performer--dentified through TicktMaster API--and create custom playlists that are saved to user's own Spotify account if they are logged in.
+
+
+###MVP
+MVP User Stories
+  User logs into Spotify to activate full functionality of showUP site
+  User views and sorts clickable list to get specific information on festival performers
+  User can view and access performer's images and social media channels, listen to top tracks through Spotify, find and/or create playlists featuring the selected performer.
+  User can logout and selection is preserved in Spotify
+
+####Release 2
+  Integrate features to make a more well-rounded festival experience: Google Maps, RTA information, SpotHero, Chicago Eater, other local entertainment and hospitality venues.
+  Create an app version
+  Create a user profile to refine data delivered and to make suggestions to user based on preferences: music, accomodations, budget, location, etc.
+  
+## APIs to be Used
+TicketMaster API
+Spotify API
+
+## Rough breakdown of tasks
+Jenine Ellis: Project Manager, API Research, JS Developer, Code Reviewer.
+John Dahle: R & D--API usage; JS Developer; Code Reviewer.
+Madeleine Kemeny: R & D--UI/UX; Code Reviewer; Presentation Developer.
+Daniel Fripp: JS Developer, Bootstrap Wrangler, Code Reviewer.
+Ian Lukidis: JS Developer, Code Reviewer.
+Charles Monuma: Presentation Developer, Code Reviewer.
+
 
