@@ -16,7 +16,7 @@ if (responseSpotify.length > 0) {
     var e = responseSpotify.indexOf("&");
     spotifyToken = responseSpotify.substring(s, e);
     spotifyActive = true;
-    console.log("token", spotifyToken);
+    // console.log("token", spotifyToken);
     // get the user name
     getUserName();
     // set a time for 1 hour (less 10 sec) - token will expire at that time
@@ -90,12 +90,12 @@ function getArtistInfo(a, social) {
             },
             success: function (r1) {
                 $("#spot-artist").empty();
-                console.log(r1);    
+                // console.log(r1);    
                 var returnedArtists = r1.artists.items
                 if (returnedArtists.length > 0) {
                     artistName = r1.artists.items[0].name;
                     artistId = r1.artists.items[0].id;
-                    console.log(artistId);
+                    // console.log(artistId);
                     artistImg = r1.artists.items[0].images[0].url;
                     artistUrl = r1.artists.items[0].external_urls.spotify;
                     var topRow = $("<h3>");
@@ -116,7 +116,6 @@ function getArtistInfo(a, social) {
                     // add social media links
                     socialObject = JSON.parse(social);
                     if (socialObject.hasOwnProperty("facebook")) {
-                        console.log(socialObject.facebook[0].url)
                         var fbLink = "<a class='soc-link' href='" + socialObject.facebook[0].url + "' target='socialMedia'>Facebook</a><br><br>";
                     } else {
                         var fbLink = "No Facebook account found.<br><br>";
@@ -172,7 +171,7 @@ function getUserName() {
                 "Authorization": "Bearer " + spotifyToken
             },
             success: function (userprofile) {
-                console.log(userprofile);
+                // console.log(userprofile);
                 userName = userprofile.display_name;
                 $("#username").text("You are logged in as " + userName);
             }
@@ -192,7 +191,7 @@ function getPlaylist() {
                 "Authorization": "Bearer " + spotifyToken
             },
             success: function (r2) {
-                console.log(r2);
+                // console.log(r2);
                 populatePlaylists(r2);
             }
         });
@@ -248,13 +247,13 @@ function getTopTracks() {
                 "Authorization": "Bearer " + spotifyToken
             },
             success: function (r3) {
-                console.log(r3);
+                // console.log(r3);
                 populateTopTracks(r3);
             }
         });
     } else {
         // could not find playlist
-        $("#artist-playlist").empty();
+        $("#artist-toptracks").empty();
         $("#tthead").html("<h3>" + artistName + "</h3><br><br><p>Artist top tracks not avaialble from spotify");    
     }
 }
