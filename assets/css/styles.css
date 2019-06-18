@@ -122,7 +122,7 @@ td {
 }
 
 .nav-link {
-  color: red;
+  color: #ff4438;
   /* background-color: #ff4438;
   border: 1px solid white; */
 }
@@ -141,6 +141,15 @@ td {
 
 .nav-tabs {
   border-bottom: 1px solid white;
+}
+
+.soc-link {
+  color: #ff4438;
+}
+
+.soc-link:hover {
+  color: white;
+  text-decoration: none;
 }
 
 /* .footer {
