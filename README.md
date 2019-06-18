@@ -23,7 +23,7 @@ Dan
 
 
 #### Summary
-To create a mobile responsive website that will allow a user to search Lollapalooza for artists. The app will have a complete list of performers for the festival. The user will be able to select a performer, see and use links to the performer's external social media, access their "top tracks" through Spotify, and save playlists for that performer to the user's Spotify account. The user is able to log out and when they log back in, their selections are saved in their Spotify account.
+To create a mobile responsive website that will allow a user to search Lollapalooza for performers. The user will be able to select a performer, see and use links to the performer's external social media, access their "top tracks" through Spotify, and save playlists for that performer to the user's Spotify account. The user is able to log out and when they log back in, their selections are saved in their Spotify account.
 
 
 #### Project Requirements
