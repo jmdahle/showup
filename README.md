@@ -16,7 +16,7 @@ Charles
 
 Ian 
 
-Dan
+Daniel
 
 
 ## Project Description
