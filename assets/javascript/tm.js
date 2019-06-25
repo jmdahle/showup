@@ -49,7 +49,7 @@ $.ajax({
     // initiate search box
     $('#searchbox').on('keyup', function () {
         var searchString = $(this).val();
-        artistList.search(searchString);
+        artistList.search(searchString,['name']);
     });
     //handler for clear search box button
     $("#clearBtn").on("click", function() {
